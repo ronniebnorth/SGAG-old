@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/footfall_swim.ogg-08415867f0c906ba10801de713fed248.oggstr"
+
+[deps]
+
+source_file="res://sounds/footfall/footfall_swim.ogg"
+dest_files=[ "res://.import/footfall_swim.ogg-08415867f0c906ba10801de713fed248.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

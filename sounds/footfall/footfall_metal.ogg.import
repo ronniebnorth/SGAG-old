@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/footfall_metal.ogg-05b61f4afb8d56b3b3408b477ec16b0e.oggstr"
+
+[deps]
+
+source_file="res://sounds/footfall/footfall_metal.ogg"
+dest_files=[ "res://.import/footfall_metal.ogg-05b61f4afb8d56b3b3408b477ec16b0e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

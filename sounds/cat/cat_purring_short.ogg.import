@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cat_purring_short.ogg-1adff16aaa4820138a0e4b140e4351e3.oggstr"
+
+[deps]
+
+source_file="res://sounds/cat/cat_purring_short.ogg"
+dest_files=[ "res://.import/cat_purring_short.ogg-1adff16aaa4820138a0e4b140e4351e3.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

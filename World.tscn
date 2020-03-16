@@ -1,0 +1,1048 @@
+[gd_scene load_steps=42 format=2]
+
+[ext_resource path="res://images/black.png" type="Texture" id=1]
+[ext_resource path="res://World.gd" type="Script" id=2]
+[ext_resource path="res://images/icon.png" type="Texture" id=3]
+[ext_resource path="res://sounds/cat/cat_purring_short.ogg" type="AudioStream" id=4]
+[ext_resource path="res://sounds/cat/cat_meow_short.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Player.gd" type="Script" id=7]
+[ext_resource path="res://sounds/drone.ogg" type="AudioStream" id=8]
+[ext_resource path="res://SGArea.gd" type="Script" id=9]
+[ext_resource path="res://sounds/cat/cat_purring.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sounds/area/slow-dripping.ogg" type="AudioStream" id=11]
+[ext_resource path="res://test_material.tres" type="Material" id=12]
+[ext_resource path="res://SGWall.gd" type="Script" id=13]
+[ext_resource path="res://sgsq8.tres" type="Material" id=14]
+[ext_resource path="res://sounds/area/falling_in_water.ogg" type="AudioStream" id=15]
+[ext_resource path="res://sounds/firefly.ogg" type="AudioStream" id=16]
+[ext_resource path="res://sounds/firefly_sting.ogg" type="AudioStream" id=17]
+[ext_resource path="res://sounds/firefly_loop.ogg" type="AudioStream" id=18]
+[ext_resource path="res://images/grid_25x25.png" type="Texture" id=19]
+[ext_resource path="res://sounds/baby/baby_crying_0.ogg" type="AudioStream" id=20]
+[ext_resource path="res://sounds/baby/baby_crying_1.ogg" type="AudioStream" id=21]
+[ext_resource path="res://sounds/baby/baby_crying_2.ogg" type="AudioStream" id=22]
+[ext_resource path="res://sounds/baby/baby_crying_3.ogg" type="AudioStream" id=23]
+[ext_resource path="res://sounds/baby/baby_crying_4.ogg" type="AudioStream" id=24]
+[ext_resource path="res://sounds/baby/baby_crying_5.ogg" type="AudioStream" id=25]
+[ext_resource path="res://sounds/baby/baby_crying_6.ogg" type="AudioStream" id=26]
+[ext_resource path="res://sounds/area/waterfall.ogg" type="AudioStream" id=27]
+
+[sub_resource type="SphereMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_unshaded = true
+
+[sub_resource type="SphereMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_unshaded = true
+
+[sub_resource type="CapsuleShape" id=5]
+
+[sub_resource type="PlaneMesh" id=6]
+
+[sub_resource type="BoxShape" id=7]
+
+[sub_resource type="CubeMesh" id=8]
+
+[sub_resource type="BoxShape" id=9]
+
+[sub_resource type="CubeMesh" id=10]
+
+[sub_resource type="SpatialMaterial" id=11]
+flags_transparent = true
+params_depth_draw_mode = 3
+albedo_color = Color( 1, 1, 1, 0.513726 )
+uv1_scale = Vector3( 100, 100, 100 )
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_color = Color( 0.992157, 0.984314, 0.984314, 1 )
+
+[sub_resource type="SpatialMaterial" id=13]
+
+[sub_resource type="BoxShape" id=14]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer3" type="ViewportContainer" parent="."]
+margin_right = 360.0
+margin_bottom = 716.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer3"]
+size = Vector2( 360, 716 )
+handle_input_locally = false
+render_target_update_mode = 3
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+shadow_atlas_size = 4096
+shadow_atlas_quad_0 = 1
+
+[node name="MainCamera" type="Camera" parent="ViewportContainer3/Viewport"]
+current = true
+
+[node name="Blackscreen" type="TextureRect" parent="ViewportContainer3/Viewport/MainCamera"]
+visible = false
+margin_right = 360.0
+margin_bottom = 760.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 720.0
+margin_right = 320.0
+margin_bottom = 720.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 80
+alignment = 1
+
+[node name="LeftEarCam" type="ViewportContainer" parent="HBoxContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="HBoxContainer/LeftEarCam"]
+handle_input_locally = false
+usage = 3
+render_target_update_mode = 3
+shadow_atlas_size = 4096
+shadow_atlas_quad_0 = 1
+
+[node name="Camera" type="Camera" parent="HBoxContainer/LeftEarCam/Viewport"]
+current = true
+fov = 108.0
+
+[node name="LeftEarPlateCam" type="ViewportContainer" parent="HBoxContainer"]
+margin_left = 80.0
+margin_right = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="HBoxContainer/LeftEarPlateCam"]
+handle_input_locally = false
+usage = 3
+render_target_update_mode = 3
+shadow_atlas_size = 4096
+shadow_atlas_quad_0 = 1
+
+[node name="Camera" type="Camera" parent="HBoxContainer/LeftEarPlateCam/Viewport"]
+current = true
+fov = 108.0
+
+[node name="FaceEarCam" type="ViewportContainer" parent="HBoxContainer"]
+margin_left = 160.0
+margin_right = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="HBoxContainer/FaceEarCam"]
+handle_input_locally = false
+render_target_update_mode = 3
+shadow_atlas_size = 4096
+shadow_atlas_quad_0 = 1
+
+[node name="Camera" type="Camera" parent="HBoxContainer/FaceEarCam/Viewport"]
+current = true
+fov = 108.0
+
+[node name="RightEarPlateCam" type="ViewportContainer" parent="HBoxContainer"]
+margin_left = 240.0
+margin_right = 240.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="HBoxContainer/RightEarPlateCam"]
+handle_input_locally = false
+render_target_update_mode = 3
+shadow_atlas_size = 4096
+shadow_atlas_quad_0 = 1
+
+[node name="Camera" type="Camera" parent="HBoxContainer/RightEarPlateCam/Viewport"]
+current = true
+fov = 108.0
+
+[node name="RightEarCam" type="ViewportContainer" parent="HBoxContainer"]
+margin_left = 320.0
+margin_right = 320.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="HBoxContainer/RightEarCam"]
+handle_input_locally = false
+usage = 3
+render_target_update_mode = 3
+shadow_atlas_size = 4096
+shadow_atlas_quad_0 = 1
+
+[node name="Camera" type="Camera" parent="HBoxContainer/RightEarCam/Viewport"]
+current = true
+fov = 108.0
+
+[node name="World" type="Spatial" parent="."]
+script = ExtResource( 2 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="World"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 35.1301, 17.7554 )
+light_color = Color( 1, 0.992157, 0.992157, 1 )
+light_energy = 0.26
+shadow_enabled = true
+
+[node name="SoundLights" type="Node" parent="World"]
+
+[node name="SoundLight" type="MeshInstance" parent="World/SoundLights"]
+transform = Transform( 0.5, -1.81335e-09, 1.31217e-15, 1.81335e-09, 0.5, 2.67363e-18, -1.31217e-15, -2.67363e-18, 0.5, 0.220647, 2.23695, 12.5497 )
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="OmniLight" type="SpotLight" parent="World/SoundLights"]
+transform = Transform( 1, -3.7835e-09, 2.13107e-13, -3.76175e-09, -0.994245, 0.107132, -4.05121e-10, -0.107132, -0.994245, 0.218341, 2.26669, 12.5382 )
+light_color = Color( 0, 1, 0, 1 )
+light_energy = 6.41
+shadow_enabled = true
+shadow_bias = 0.16
+spot_range = 23.4
+spot_attenuation = 3.4822
+spot_angle = 38.9
+
+[node name="SoundLight4" type="MeshInstance" parent="World/SoundLights"]
+transform = Transform( 0.5, -1.81335e-09, 1.31217e-15, -1.81181e-09, -0.499576, -0.020589, 7.46713e-11, 0.020589, -0.499576, 0.220647, 2.26644, 34.0318 )
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="OmniLight6" type="SpotLight" parent="World/SoundLights"]
+transform = Transform( 1, -3.7835e-09, 2.13135e-13, 3.77524e-09, 0.997813, -0.0660999, 2.49876e-10, 0.0660999, 0.997813, 0.218341, 2.2372, 34.0445 )
+light_color = Color( 1, 0, 0, 1 )
+light_energy = 6.41
+shadow_enabled = true
+shadow_bias = 0.16
+spot_range = 23.4
+spot_attenuation = 3.4822
+spot_angle = 38.9
+
+[node name="SoundLight3" type="MeshInstance" parent="World/SoundLights"]
+transform = Transform( 0.5, -1.81335e-09, 1.31217e-15, 1.81335e-09, 0.5, 2.67363e-18, -1.31217e-15, -2.67363e-18, 0.5, -4.61874, -6.12491, 15.6137 )
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="OmniLight5" type="OmniLight" parent="World/SoundLights"]
+transform = Transform( 1, -3.7835e-09, 2.13163e-13, 3.7835e-09, 1, 4.16335e-16, -2.13163e-13, -4.16334e-16, 1, -4.62105, -6.09517, 15.6022 )
+light_color = Color( 0, 1, 1, 1 )
+light_energy = 1.84
+shadow_enabled = true
+shadow_bias = 0.16
+omni_range = 5.8
+
+[node name="SoundLight2" type="MeshInstance" parent="World/SoundLights"]
+transform = Transform( 0.2, -7.567e-10, 2.66454e-14, 7.567e-10, 0.2, 7.63278e-17, -4.26326e-14, -8.32667e-17, 0.2, 0.00500584, -30.612, 9.37084 )
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="OmniLight2" type="OmniLight" parent="World/SoundLights"]
+transform = Transform( 1, -3.7835e-09, 2.13163e-13, 3.7835e-09, 1, 4.16335e-16, -2.13163e-13, -4.16334e-16, 1, 0.00500584, -30.612, 9.3593 )
+light_energy = 1.84
+shadow_enabled = true
+omni_range = 5.8
+
+[node name="SoundLight5" type="MeshInstance" parent="World/SoundLights"]
+transform = Transform( 0.2, -7.567e-10, 2.66454e-14, 7.567e-10, 0.2, 7.63278e-17, -4.26326e-14, -8.32667e-17, 0.2, 5.32144, -7.72227, 13.7669 )
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="OmniLight3" type="OmniLight" parent="World/SoundLights"]
+transform = Transform( 1, -3.7835e-09, 2.13163e-13, 3.7835e-09, 1, 4.16335e-16, -2.13163e-13, -4.16334e-16, 1, -4.29802, -10.6842, 13.7669 )
+light_energy = 2.05
+shadow_enabled = true
+omni_range = 5.8
+
+[node name="SoundLight6" type="MeshInstance" parent="World/SoundLights"]
+transform = Transform( 0.2, -7.567e-10, 2.66454e-14, 7.567e-10, 0.2, 7.63278e-17, -4.26326e-14, -8.32667e-17, 0.2, -7.71573, -10.6842, 13.7669 )
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="OmniLight4" type="OmniLight" parent="World/SoundLights"]
+transform = Transform( 1, -3.7835e-09, 2.13163e-13, 3.7835e-09, 1, 4.16335e-16, -2.13163e-13, -4.16334e-16, 1, -7.63201, -10.6842, 13.7669 )
+light_energy = 2.05
+shadow_enabled = true
+omni_range = 5.8
+
+[node name="Cat" type="VisibilityNotifier" parent="World"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.0550957, 0.0243626, 17.8764 )
+
+[node name="Sprite3D" type="Sprite3D" parent="World/Cat"]
+texture = ExtResource( 3 )
+
+[node name="Purr" type="AudioStreamPlayer3D" parent="World/Cat"]
+stream = ExtResource( 4 )
+unit_db = 3.0
+bus = "Cat"
+
+[node name="Meow" type="AudioStreamPlayer3D" parent="World/Cat"]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0 )
+stream = ExtResource( 5 )
+unit_db = -8.0
+bus = "Cat"
+
+[node name="Player" parent="World" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0315168, 1.78176, 24.1034 )
+script = ExtResource( 7 )
+
+[node name="LightSound" type="AudioStreamPlayer" parent="World/Player"]
+stream = ExtResource( 8 )
+autoplay = true
+bus = "LightR"
+
+[node name="LightSound2" type="AudioStreamPlayer" parent="World/Player"]
+stream = ExtResource( 27 )
+autoplay = true
+bus = "LightG"
+
+[node name="Sound" type="AudioStreamPlayer" parent="World/Player"]
+
+[node name="Area" type="Area" parent="World/Player"]
+transform = Transform( 1.7, 0, 0, 0, 1.15224, 0, 0, 0, 1.7, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Player/Area"]
+transform = Transform( 0.4, 0, 0, 0, -1.74846e-08, -1, 0, 0.4, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="RayCastSound" type="RayCast" parent="World/Player"]
+enabled = true
+cast_to = Vector3( 0, 0, -15 )
+collide_with_areas = true
+
+[node name="RayCastForward" type="RayCast" parent="World/Player"]
+enabled = true
+cast_to = Vector3( 0, 0, -1 )
+
+[node name="RayCastForwardLeft" type="RayCast" parent="World/Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0, 0.15 )
+enabled = true
+cast_to = Vector3( -0.65, 0, -0.65 )
+
+[node name="RayCastForwardRight" type="RayCast" parent="World/Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0, 0.15 )
+enabled = true
+cast_to = Vector3( 0.65, 0, -0.65 )
+
+[node name="RayCastDown" type="RayCast" parent="World/Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.907875, 0 )
+enabled = true
+
+[node name="LeftEar" type="MeshInstance" parent="World/Player"]
+transform = Transform( -3.54724e-08, -0.469846, 0.17101, -0.5, 3.7749e-08, 1.80345e-15, -1.29109e-08, -0.17101, -0.469846, -0.1, 0, 0 )
+cast_shadow = 0
+use_in_baked_light = true
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="RightEar" type="MeshInstance" parent="World/Player"]
+transform = Transform( -2.05376e-08, 0.469846, 0.17101, -0.5, -2.18557e-08, 2.00575e-14, 7.4751e-09, -0.17101, 0.469846, 0.1, 0, 0 )
+cast_shadow = 0
+use_in_baked_light = true
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="FaceEar" type="MeshInstance" parent="World/Player"]
+transform = Transform( 9.9168e-11, 0.00131352, 0.499998, -0.5, 3.7749e-08, 1.95671e-22, -3.77489e-08, -0.499998, 0.00131352, -1.11759e-08, -0.0713549, -0.487183 )
+cast_shadow = 0
+use_in_baked_light = true
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="MainHall" type="Node" parent="World"]
+
+[node name="SoundArea" type="Area" parent="World/MainHall"]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 5.77782, 0, 1.15964, 27.8446 )
+script = ExtResource( 9 )
+heartrate = 150
+oneshot_heartrate = true
+default_footfall = "normal"
+longtouch_sound = "area/open_closet_door"
+longtouch_sound_playtimes = 1
+longtouch_sound_3d = true
+longtouch_done_condition = "is_cat_out"
+longtouch_complete_function = "cat_comes_out"
+entry_sound = "cat/cat_scratching_door"
+entry_sound_playtimes = -1
+entry_sound_3d = true
+deactivate_entry_after_longtouch = true
+
+[node name="CollisionShape" type="CollisionShape" parent="World/MainHall/SoundArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03322, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="CatArea" type="Area" parent="World/MainHall"]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13527, 31.2181 )
+script = ExtResource( 9 )
+heartrate = 150
+oneshot_heartrate = true
+default_footfall = "normal"
+longtouch_sound = "area/open_closet_door"
+longtouch_sound_playtimes = 1
+longtouch_sound_3d = true
+longtouch_done_condition = "is_cat_out"
+longtouch_complete_function = "cat_comes_out"
+entry_sound = "cat/cat_scratching_door"
+entry_sound_playtimes = -1
+entry_sound_3d = true
+deactivate_entry_after_longtouch = true
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="World/MainHall/CatArea"]
+transform = Transform( 0.333333, 0, 0, 0, 1, 0, 0, 0, 1, -0.559151, -1, 0 )
+bus = "Sound"
+
+[node name="Purring" type="AudioStreamPlayer3D" parent="World/MainHall/CatArea"]
+transform = Transform( 0.333333, 0, 0, 0, 1, 0, 0, 0, 1, -0.559151, -1, 0 )
+stream = ExtResource( 10 )
+unit_db = 7.767
+bus = "SmallReverb"
+
+[node name="CollisionShape" type="CollisionShape" parent="World/MainHall/CatArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0362587 )
+shape = SubResource( 7 )
+
+[node name="KickKeysArea" type="Area" parent="World/MainHall"]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 1.41807, 0, 1.09047, 27.1085 )
+script = ExtResource( 9 )
+heartrate = 75
+oneshot_heartrate = true
+default_footfall = "normal"
+longtouch_sound = "area/picking_up_keys"
+longtouch_sound_playtimes = 1
+longtouch_sound_3d = true
+longtouch_do_condition = "is_cat_out"
+longtouch_done_condition = "keys_picked_up"
+entry_sound = "area/kick_keys"
+entry_sound_playtimes = -1
+entry_sound_3d = true
+deactivate_entry_after_longtouch = true
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="World/MainHall/KickKeysArea"]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+bus = "Sound"
+
+[node name="CollisionShape" type="CollisionShape" parent="World/MainHall/KickKeysArea"]
+shape = SubResource( 7 )
+
+[node name="WaterDripArea" type="Area" parent="World/MainHall"]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 2.89008, 0, 1, 21.9263 )
+script = ExtResource( 9 )
+heartrate = 65
+constant_heartrate = true
+default_footfall = "normal"
+extra_footfall = "water"
+extra_footfall_gradient = "center"
+
+[node name="WaterDripping" type="AudioStreamPlayer3D" parent="World/MainHall/WaterDripArea"]
+transform = Transform( 0.333333, 0, 0, 0, 1, 0, 0, 0, 0.346011, 0, 0.919464, 0.108274 )
+stream = ExtResource( 11 )
+unit_db = -10.874
+autoplay = true
+bus = "SmallReverb"
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="World/MainHall/WaterDripArea"]
+transform = Transform( 0.333333, 0, 0, 0, 1, 0, 0, 0, 0.3367, 0, -1, 0 )
+bus = "Sound"
+
+[node name="CollisionShape" type="CollisionShape" parent="World/MainHall/WaterDripArea"]
+shape = SubResource( 7 )
+
+[node name="LockedDoorArea" type="Area" parent="World/MainHall"]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 1.41807, 0, 1, 16.0142 )
+script = ExtResource( 9 )
+heartrate = 75
+constant_heartrate = true
+default_footfall = "normal"
+longtouch_sound = "area/door_unlocking"
+longtouch_sound_playtimes = 1
+longtouch_sound_3d = true
+longtouch_do_condition = "keys_picked_up"
+longtouch_done_condition = "door_unlocked"
+longtouch_complete_function = "open_hall_door"
+entry_sound = "area/door_locked"
+entry_sound_playtimes = -1
+entry_sound_3d = true
+deactivate_entry_after_longtouch = true
+collision_sound = "area/door_locked"
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="World/MainHall/LockedDoorArea"]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+bus = "Sound"
+
+[node name="CollisionShape" type="CollisionShape" parent="World/MainHall/LockedDoorArea"]
+shape = SubResource( 7 )
+
+[node name="DropArea" type="Area" parent="World/MainHall"]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 1.41807, 0, -2.10979, 16.0459 )
+script = ExtResource( 9 )
+heartrate = 200
+constant_heartrate = true
+base_footfall = false
+default_footfall = "none"
+entry_sound = "area/falling_wind"
+entry_sound_playtimes = 1
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="World/MainHall/DropArea"]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+bus = "Sound"
+
+[node name="CollisionShape" type="CollisionShape" parent="World/MainHall/DropArea"]
+shape = SubResource( 7 )
+
+[node name="Walls" type="Node" parent="World/MainHall"]
+
+[node name="BackWall" type="MeshInstance" parent="World/MainHall/Walls" groups=[
+"ShadowWorldMember",
+]]
+transform = Transform( -7.16594e-10, 0, 0.983625, 0, 2, 0, -0.2, 0, -5.24537e-07, -0.0235075, 2, 37.261 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+script = ExtResource( 13 )
+SGMaterial = "Stone"
+
+[node name="StaticBody" type="StaticBody" parent="World/MainHall/Walls/BackWall"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/MainHall/Walls/BackWall/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="BackWall2" type="MeshInstance" parent="World/MainHall/Walls" groups=[
+"ShadowWorldMember",
+]]
+transform = Transform( -1.43622e-08, 0, 19.7142, 0, 16.2485, 0, -0.2, 0, -5.24537e-07, -0.0235075, 2, -3.02653 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+script = ExtResource( 13 )
+SGMaterial = "Stone"
+
+[node name="StaticBody" type="StaticBody" parent="World/MainHall/Walls/BackWall2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/MainHall/Walls/BackWall2/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Wall" type="MeshInstance" parent="World/MainHall/Walls" groups=[
+"ShadowWorldMember",
+]]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 12, -1, 2, 29.2966 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+script = ExtResource( 13 )
+
+[node name="StaticBody" type="StaticBody" parent="World/MainHall/Walls/Wall"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/MainHall/Walls/Wall/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Wall3" type="MeshInstance" parent="World/MainHall/Walls" groups=[
+"ShadowWorldMember",
+]]
+transform = Transform( -5.46022e-09, 1.24915, 0, -0.2, -8.74228e-08, 0, 0, 0, 12, -4.46485, 4.11049, 29.2966 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+script = ExtResource( 13 )
+
+[node name="StaticBody" type="StaticBody" parent="World/MainHall/Walls/Wall3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/MainHall/Walls/Wall3/StaticBody"]
+transform = Transform( 1, 5.96046e-08, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 9 )
+
+[node name="Wall2" type="MeshInstance" parent="World/MainHall/Walls" groups=[
+"ShadowWorldMember",
+]]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 12, 1, 2, 29.196 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+script = ExtResource( 13 )
+
+[node name="StaticBody" type="StaticBody" parent="World/MainHall/Walls/Wall2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/MainHall/Walls/Wall2/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="LockedDoor" type="MeshInstance" parent="World/MainHall/Walls" groups=[
+"ShadowWorldMember",
+]]
+transform = Transform( 3.16322e-08, 0, 1.15184, 0, 2.243, 0, -0.150808, 0, 2.08186e-07, 0.0687289, 2, 17.4508 )
+material_override = ExtResource( 14 )
+mesh = SubResource( 10 )
+material/0 = null
+script = ExtResource( 13 )
+SGMaterial = "Stone"
+
+[node name="StaticBody" type="StaticBody" parent="World/MainHall/Walls/LockedDoor"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/MainHall/Walls/LockedDoor/StaticBody"]
+transform = Transform( 1, 0, 3.41061e-13, 0, 1, 0, 7.10543e-15, 0, 1, 0, 0, -0.0296972 )
+shape = SubResource( 9 )
+
+[node name="LockedDoor2" type="MeshInstance" parent="World/MainHall/Walls" groups=[
+"ShadowWorldMember",
+]]
+transform = Transform( 3.16322e-08, 0, 1.15184, 0, 2.243, 0, -0.1, 0, 1.38047e-07, -2.78008, 2, 17.8806 )
+material_override = SubResource( 11 )
+mesh = SubResource( 10 )
+material/0 = null
+script = ExtResource( 13 )
+SGMaterial = "Stone"
+
+[node name="StaticBody" type="StaticBody" parent="World/MainHall/Walls/LockedDoor2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/MainHall/Walls/LockedDoor2/StaticBody"]
+transform = Transform( 1, 0, 3.41061e-13, 0, 1, 0, 7.10543e-15, 0, 1, 0, 0, -0.0296972 )
+shape = SubResource( 9 )
+
+[node name="Floors" type="Node" parent="World/MainHall"]
+
+[node name="Floor" type="MeshInstance" parent="World/MainHall/Floors" groups=[
+"ShadowWorldMember",
+]]
+transform = Transform( 1.50996e-08, 1, 0, -0.2, 7.54979e-08, 0, 0, 0, 12, -0.0127664, 0, 29.1955 )
+material_override = SubResource( 12 )
+cast_shadow = 0
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = SubResource( 13 )
+script = ExtResource( 13 )
+
+[node name="StaticBody" type="StaticBody" parent="World/MainHall/Floors/Floor"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/MainHall/Floors/Floor/StaticBody"]
+shape = SubResource( 14 )
+
+[node name="Swim" type="Node" parent="World"]
+
+[node name="SwimArea" type="Area" parent="World/Swim"]
+transform = Transform( 1.79304, 0, 0, 0, 1, 0, 0, 0, 4.51595, 0, -11.2073, 14.3527 )
+script = ExtResource( 9 )
+heartrate = 175
+oneshot_heartrate = true
+base_footfall = false
+default_footfall = "swim"
+next_target_area = "SandyBank"
+entry_sound = "area/waterfall"
+entry_sound_playtimes = -1
+entry_sound_3d = true
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Swim/SwimArea"]
+shape = SubResource( 7 )
+
+[node name="Splash" type="AudioStreamPlayer" parent="World/Swim/SwimArea"]
+stream = ExtResource( 15 )
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="World/Swim/SwimArea"]
+transform = Transform( 0.557712, 0, 0, 0, 1, 0, 0, 0, 0.221437, 0, 0, -1.3331 )
+unit_db = -10.233
+
+[node name="SandyBank" type="Area" parent="World/Swim"]
+transform = Transform( 0.974793, 0, 0, 0, 1, 0, 0, 0, 4.50956, 3.86083, -11.2073, 14.3137 )
+script = ExtResource( 9 )
+heartrate = 75
+default_footfall = "sand"
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Swim/SandyBank"]
+shape = SubResource( 7 )
+
+[node name="SandyBank2" type="Area" parent="World/Swim"]
+transform = Transform( 0.974793, 0, 0, 0, 1, 0, 0, 0, 4.50956, -3.27347, -11.2073, 14.3352 )
+script = ExtResource( 9 )
+heartrate = 75
+default_footfall = "sand"
+longtouch_sound = "switch"
+longtouch_sound_playtimes = -1
+longtouch_sound_3d = true
+longtouch_do_condition = "change_fan"
+longtouch_complete_function = "change_fan_speed"
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Swim/SandyBank2"]
+shape = SubResource( 7 )
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="World/Swim/SandyBank2"]
+
+[node name="Walls" type="Node" parent="World/Swim"]
+
+[node name="Wall5" type="MeshInstance" parent="World/Swim/Walls"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 4.3739, -5.0588, -10.6629, 13.7557 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Swim/Walls/Wall5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Swim/Walls/Wall5/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="FanBlade" type="MeshInstance" parent="World/Swim/Walls"]
+transform = Transform( 0.0277334, 0, 0, 0, 0.245409, 0, 0, 0, 1.64566, -3.64436, -6.10828, 13.7557 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Swim/Walls/FanBlade"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Swim/Walls/FanBlade/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="FanBlade2" type="MeshInstance" parent="World/Swim/Walls"]
+transform = Transform( 0.0277334, 0, 0, 0, -1.07272e-08, -1.64566, 0, 0.245409, -7.1934e-08, -3.64436, -6.10828, 13.7557 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Swim/Walls/FanBlade2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Swim/Walls/FanBlade2/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Wall6" type="MeshInstance" parent="World/Swim/Walls"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 4.3739, 4.73884, -10.6629, 13.7557 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Swim/Walls/Wall6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Swim/Walls/Wall6/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Wall7" type="MeshInstance" parent="World/Swim/Walls"]
+transform = Transform( -9.41933e-09, 0, 4.71264, 0, 2, 0, -0.2, 0, -1.91189e-07, -0.0181293, -10.6629, 17.9077 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Swim/Walls/Wall7"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Swim/Walls/Wall7/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Wall8" type="MeshInstance" parent="World/Swim/Walls"]
+transform = Transform( -9.41933e-09, 0, 4.71264, 0, 2, 0, -0.2, 0, -1.91189e-07, -0.0181293, -10.6629, 9.48556 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Swim/Walls/Wall8"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Swim/Walls/Wall8/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Floors" type="Node" parent="World/Swim"]
+
+[node name="Floor2" type="MeshInstance" parent="World/Swim/Floors"]
+transform = Transform( 7.18043e-08, 4.75538, 0, -0.2, 7.54979e-08, 0, 0, 0, 4.88729, -0.0510426, -12.6984, 13.6004 )
+cast_shadow = 0
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = SubResource( 13 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Swim/Floors/Floor2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Swim/Floors/Floor2/StaticBody"]
+shape = SubResource( 14 )
+
+[node name="Fireflies" type="Node" parent="World"]
+
+[node name="Firefly" type="AudioStreamPlayer3D" parent="World/Fireflies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86083, -11.2073, 16.7789 )
+stream = ExtResource( 16 )
+unit_db = -7.0
+
+[node name="Firefly2" type="AudioStreamPlayer3D" parent="World/Fireflies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86083, -11.2073, 16.7789 )
+stream = ExtResource( 17 )
+unit_db = -11.0
+
+[node name="FireflyLoop" type="AudioStreamPlayer3D" parent="World/Fireflies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86083, -11.2073, 16.7789 )
+stream = ExtResource( 18 )
+unit_db = -7.0
+
+[node name="FireflyArea" type="Area" parent="World/Fireflies"]
+transform = Transform( 0.974793, 0, 0, 0, 1, 0, 0, 0, 1.11178, 3.86083, -11.2073, 16.6193 )
+script = ExtResource( 9 )
+heartrate = 75
+default_footfall = "sand"
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Fireflies/FireflyArea"]
+shape = SubResource( 7 )
+
+[node name="FireflyLureArea" type="Area" parent="World/Fireflies"]
+transform = Transform( 0.974793, 0, 0, 0, 1, 0, 0, 0, 4.15156, 2.15444, -11.2073, 13.8805 )
+script = ExtResource( 9 )
+heartrate = 75
+default_footfall = "sand"
+entry_sound = "firefly_loop"
+entry_sound_playtimes = -1
+entry_sound_3d = true
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Fireflies/FireflyLureArea"]
+shape = SubResource( 7 )
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="World/Fireflies/FireflyLureArea"]
+transform = Transform( 1.02586, 0, 0, 0, 1, 0, 0, 0, 0.240873, 1.72088, 0, 0.862343 )
+
+[node name="Walls" type="Node" parent="World"]
+
+[node name="Wall0" type="MeshInstance" parent="World/Walls"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 12, -1, 25.1708, 29.2966 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Walls/Wall0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Walls/Wall0/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Wall1" type="MeshInstance" parent="World/Walls"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 12, -1, 25.1708, 29.2966 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Walls/Wall1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Walls/Wall1/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Wall2" type="MeshInstance" parent="World/Walls"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 12, -1, 25.1708, 29.2966 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Walls/Wall2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Walls/Wall2/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Wall3" type="MeshInstance" parent="World/Walls"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 12, -1, 25.1708, 29.2966 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Walls/Wall3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Walls/Wall3/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Wall4" type="MeshInstance" parent="World/Walls"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 12, -1, 25.1708, 29.2966 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Walls/Wall4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Walls/Wall4/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Wall5" type="MeshInstance" parent="World/Walls"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 12, -1, 25.1708, 29.2966 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Walls/Wall5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Walls/Wall5/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Wall6" type="MeshInstance" parent="World/Walls"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 12, -1, 25.1708, 29.2966 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Walls/Wall6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Walls/Wall6/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Wall7" type="MeshInstance" parent="World/Walls"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 12, -1, 25.1708, 29.2966 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Walls/Wall7"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Walls/Wall7/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Wall8" type="MeshInstance" parent="World/Walls"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 12, -1, 25.1708, 29.2966 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Walls/Wall8"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Walls/Wall8/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Wall9" type="MeshInstance" parent="World/Walls"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 12, -1, 25.1708, 29.2966 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Walls/Wall9"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Walls/Wall9/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Wall10" type="MeshInstance" parent="World/Walls"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 12, -1, 25.1708, 29.2966 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = ExtResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Walls/Wall10"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Walls/Wall10/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Plane" type="MeshInstance" parent="World" groups=[
+"ShadowWorldMember",
+]]
+transform = Transform( 8.04772e-07, 53.2976, 0, -0.2, 7.54979e-08, 0, 0, 0, 78.359, -0.0127664, 16.5524, 29.1955 )
+use_in_baked_light = true
+mesh = SubResource( 8 )
+material/0 = SubResource( 13 )
+script = ExtResource( 13 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Plane"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Plane/StaticBody"]
+shape = SubResource( 14 )
+
+[node name="GridTexture" type="Sprite3D" parent="World"]
+transform = Transform( 17.02, 0, 0, 0, -7.44842e-07, -1, 0, 17.04, -4.37114e-08, 0, 0, 0 )
+visible = false
+opacity = 0.15
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Babies" type="Node" parent="World"]
+
+[node name="Baby_0" type="AudioStreamPlayer3D" parent="World/Babies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -233.336 )
+stream = ExtResource( 20 )
+bus = "Baby"
+
+[node name="Baby_1" type="AudioStreamPlayer3D" parent="World/Babies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -233.336 )
+stream = ExtResource( 21 )
+bus = "Baby"
+
+[node name="Baby_2" type="AudioStreamPlayer3D" parent="World/Babies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -233.336 )
+stream = ExtResource( 22 )
+bus = "Baby"
+
+[node name="Baby_3" type="AudioStreamPlayer3D" parent="World/Babies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -233.336 )
+stream = ExtResource( 23 )
+bus = "Baby"
+
+[node name="Baby_4" type="AudioStreamPlayer3D" parent="World/Babies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -233.336 )
+stream = ExtResource( 24 )
+bus = "Baby"
+
+[node name="Baby_5" type="AudioStreamPlayer3D" parent="World/Babies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -233.336 )
+stream = ExtResource( 25 )
+bus = "Baby"
+
+[node name="Baby_6" type="AudioStreamPlayer3D" parent="World/Babies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -233.336 )
+stream = ExtResource( 26 )
+bus = "Baby"
+
+[node name="Timer" type="Timer" parent="World"]
+
+[node name="OmniLight" type="OmniLight" parent="World"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71416, 2.25851, 19.4435 )
+light_energy = 1.13
+shadow_enabled = true
+
+[node name="OmniLight2" type="OmniLight" parent="World"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30047, 3.84761, 26.202 )
+light_energy = 1.13
+shadow_enabled = true
+
+[node name="OmniLight3" type="OmniLight" parent="World"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.96603, 3.86902, 30.0286 )
+light_energy = 1.13
+shadow_enabled = true
+
+[node name="OmniLight4" type="OmniLight" parent="World"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0499163, 4.24255, 35.3479 )
+light_energy = 1.13
+shadow_enabled = true
+[connection signal="camera_entered" from="World/Cat" to="World/Player" method="_on_Cat_camera_entered"]
+[connection signal="area_entered" from="World/Player/Area" to="World/Player" method="_on_Area_area_entered"]
+[connection signal="area_exited" from="World/Player/Area" to="World/Player" method="_on_Area_area_exited"]
+[connection signal="body_entered" from="World/MainHall/SoundArea" to="World/MainHall/SoundArea" method="_on_SGArea_body_entered"]
+[connection signal="body_exited" from="World/MainHall/SoundArea" to="World/MainHall/SoundArea" method="_on_SGArea_body_exited"]
+[connection signal="body_entered" from="World/MainHall/CatArea" to="World/MainHall/CatArea" method="_on_SGArea_body_entered"]
+[connection signal="body_exited" from="World/MainHall/CatArea" to="World/MainHall/CatArea" method="_on_SGArea_body_exited"]
+[connection signal="finished" from="World/MainHall/CatArea/Sound" to="World/Player" method="_on_Sound_finished"]
+[connection signal="body_entered" from="World/MainHall/KickKeysArea" to="World/MainHall/KickKeysArea" method="_on_SGArea_body_entered"]
+[connection signal="body_exited" from="World/MainHall/KickKeysArea" to="World/MainHall/KickKeysArea" method="_on_SGArea_body_exited"]
+[connection signal="body_entered" from="World/MainHall/WaterDripArea" to="World/MainHall/WaterDripArea" method="_on_SGArea_body_entered"]
+[connection signal="body_exited" from="World/MainHall/WaterDripArea" to="World/MainHall/WaterDripArea" method="_on_SGArea_body_exited"]
+[connection signal="body_entered" from="World/MainHall/LockedDoorArea" to="World/MainHall/LockedDoorArea" method="_on_SGArea_body_entered"]
+[connection signal="body_exited" from="World/MainHall/LockedDoorArea" to="World/MainHall/LockedDoorArea" method="_on_SGArea_body_exited"]
+[connection signal="finished" from="World/MainHall/LockedDoorArea/Sound" to="World/Player" method="_on_Sound_finished"]
+[connection signal="body_entered" from="World/MainHall/DropArea" to="World/MainHall/DropArea" method="_on_SGArea_body_entered"]
+[connection signal="body_exited" from="World/MainHall/DropArea" to="World/MainHall/DropArea" method="_on_SGArea_body_exited"]
+[connection signal="body_entered" from="World/Swim/SwimArea" to="World/Swim/SwimArea" method="_on_SGArea_body_entered"]
+[connection signal="body_entered" from="World/Swim/SwimArea" to="World/Player" method="_on_SwimArea_body_entered"]
+[connection signal="body_exited" from="World/Swim/SwimArea" to="World/Swim/SwimArea" method="_on_SGArea_body_exited"]
+[connection signal="body_exited" from="World/Swim/SwimArea" to="World/Player" method="_on_SwimArea_body_exited"]
+[connection signal="body_entered" from="World/Swim/SandyBank" to="World/Swim/SandyBank" method="_on_SGArea_body_entered"]
+[connection signal="body_exited" from="World/Swim/SandyBank" to="World/Swim/SandyBank" method="_on_SGArea_body_exited"]
+[connection signal="body_exited" from="World/Swim/SandyBank" to="World/Player" method="_on_SandyBank_body_exited"]
+[connection signal="body_entered" from="World/Swim/SandyBank2" to="World/Swim/SandyBank2" method="_on_SGArea_body_entered"]
+[connection signal="body_exited" from="World/Swim/SandyBank2" to="World/Player" method="_on_SandyBank2_body_exited"]
+[connection signal="body_exited" from="World/Swim/SandyBank2" to="World/Swim/SandyBank2" method="_on_SGArea_body_exited"]
+[connection signal="finished" from="World/Swim/SandyBank2/Sound" to="World/Player" method="_on_Sound_finished"]
+[connection signal="body_entered" from="World/Fireflies/FireflyArea" to="World/Player" method="_on_FireflyArea_body_entered"]
+[connection signal="body_entered" from="World/Fireflies/FireflyArea" to="World/Fireflies/FireflyArea" method="_on_SGArea_body_entered"]
+[connection signal="body_exited" from="World/Fireflies/FireflyArea" to="World/Fireflies/FireflyArea" method="_on_SGArea_body_exited"]
+[connection signal="body_entered" from="World/Fireflies/FireflyLureArea" to="World/Fireflies/FireflyLureArea" method="_on_SGArea_body_entered"]
+[connection signal="body_exited" from="World/Fireflies/FireflyLureArea" to="World/Fireflies/FireflyLureArea" method="_on_SGArea_body_exited"]

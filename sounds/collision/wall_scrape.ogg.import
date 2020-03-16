@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/wall_scrape.ogg-00a69a36713fcb5b4d41eb5a96913053.oggstr"
+
+[deps]
+
+source_file="res://sounds/collision/wall_scrape.ogg"
+dest_files=[ "res://.import/wall_scrape.ogg-00a69a36713fcb5b4d41eb5a96913053.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

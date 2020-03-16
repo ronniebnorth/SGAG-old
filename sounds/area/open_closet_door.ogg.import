@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/open_closet_door.ogg-df914a0cd8a2866da583f56ccf8fd147.oggstr"
+
+[deps]
+
+source_file="res://sounds/area/open_closet_door.ogg"
+dest_files=[ "res://.import/open_closet_door.ogg-df914a0cd8a2866da583f56ccf8fd147.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

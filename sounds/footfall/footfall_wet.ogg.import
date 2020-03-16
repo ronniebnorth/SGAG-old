@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/footfall_wet.ogg-0d67b39914e53215a21382d36edd084b.oggstr"
+
+[deps]
+
+source_file="res://sounds/footfall/footfall_wet.ogg"
+dest_files=[ "res://.import/footfall_wet.ogg-0d67b39914e53215a21382d36edd084b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

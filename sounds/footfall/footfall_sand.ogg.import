@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/footfall_sand.ogg-39e9c4cd91af37310502da3ccb500592.oggstr"
+
+[deps]
+
+source_file="res://sounds/footfall/footfall_sand.ogg"
+dest_files=[ "res://.import/footfall_sand.ogg-39e9c4cd91af37310502da3ccb500592.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

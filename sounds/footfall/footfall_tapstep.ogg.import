@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/footfall_tapstep.ogg-a5c039e9955cab7ef0030a828bb0504d.oggstr"
+
+[deps]
+
+source_file="res://sounds/footfall/footfall_tapstep.ogg"
+dest_files=[ "res://.import/footfall_tapstep.ogg-a5c039e9955cab7ef0030a828bb0504d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

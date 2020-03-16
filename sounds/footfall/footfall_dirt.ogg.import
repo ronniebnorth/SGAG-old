@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/footfall_dirt.ogg-8996e16642c4efef570d701c25253f6f.oggstr"
+
+[deps]
+
+source_file="res://sounds/footfall/footfall_dirt.ogg"
+dest_files=[ "res://.import/footfall_dirt.ogg-8996e16642c4efef570d701c25253f6f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

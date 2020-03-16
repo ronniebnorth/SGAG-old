@@ -1,0 +1,75 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "CollisionShape",
+"class": "sg_collision",
+"language": "GDScript",
+"path": "res://SGCollisionShape.gd"
+} ]
+_global_script_class_icons={
+"sg_collision": ""
+}
+
+[application]
+
+config/name="AudioGame13"
+run/main_scene="res://World.tscn"
+config/icon="res://images/icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
+
+[debug]
+
+settings/gdscript/max_call_stack=2048
+settings/visual_script/max_call_stack=2048
+
+[display]
+
+window/size/width=360
+window/size/height=720
+window/handheld/orientation="portrait"
+window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
+
+[importer_defaults]
+
+ogg_vorbis={
+"loop": false,
+"loop_offset": 0
+}
+
+[physics]
+
+common/physics_fps=45
+common/physics_jitter_fix=0.0
+3d/active_soft_world=false
+common/enable_object_picking=false
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+quality/intended_usage/framebuffer_allocation=3
+vram_compression/import_etc=true
+quality/shadows/filter_mode.mobile=1
+quality/reflections/texture_array_reflections=false
+quality/reflections/high_quality_ggx=false
+quality/shading/force_vertex_shading.mobile=false
+quality/shading/force_lambert_over_burley.mobile=false
+quality/shading/force_blinn_over_ggx.mobile=false
+quality/depth_prepass/enable=false
+environment/default_clear_color=Color( 0, 0, 0, 1 )
+quality/depth/hdr.mobile=true
+environment/default_environment="res://default_env.tres"

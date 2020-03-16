@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/footfall_snow2.ogg-b462cf5074c1d6ba2b0b6096f438fd97.oggstr"
+
+[deps]
+
+source_file="res://sounds/footfall/footfall_snow2.ogg"
+dest_files=[ "res://.import/footfall_snow2.ogg-b462cf5074c1d6ba2b0b6096f438fd97.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

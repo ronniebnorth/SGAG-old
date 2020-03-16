@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/wall_bump.ogg-8e47ff3c8d2cf7c4c421448543bb459b.oggstr"
+
+[deps]
+
+source_file="res://sounds/collision/wall_bump.ogg"
+dest_files=[ "res://.import/wall_bump.ogg-8e47ff3c8d2cf7c4c421448543bb459b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/heart_loop.ogg-fc9a50cdf136967beebbc45d11a35cc8.oggstr"
+
+[deps]
+
+source_file="res://sounds/heart_loop.ogg"
+dest_files=[ "res://.import/heart_loop.ogg-fc9a50cdf136967beebbc45d11a35cc8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

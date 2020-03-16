@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/footfall_mud.ogg-a4025d58ce61d58e0a9e864f91cd6a3e.oggstr"
+
+[deps]
+
+source_file="res://sounds/footfall/footfall_mud.ogg"
+dest_files=[ "res://.import/footfall_mud.ogg-a4025d58ce61d58e0a9e864f91cd6a3e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

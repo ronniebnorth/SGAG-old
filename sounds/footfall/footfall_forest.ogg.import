@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/footfall_forest.ogg-19c4a4c4c0baa60fd90f078ec3a6e9af.oggstr"
+
+[deps]
+
+source_file="res://sounds/footfall/footfall_forest.ogg"
+dest_files=[ "res://.import/footfall_forest.ogg-19c4a4c4c0baa60fd90f078ec3a6e9af.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

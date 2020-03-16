@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/baby_crying_3.ogg-bc4c106f61fa8b5e3681829c19b766bc.oggstr"
+
+[deps]
+
+source_file="res://sounds/baby/baby_crying_3.ogg"
+dest_files=[ "res://.import/baby_crying_3.ogg-bc4c106f61fa8b5e3681829c19b766bc.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
